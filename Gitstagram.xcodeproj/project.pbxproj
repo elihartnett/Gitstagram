@@ -14,7 +14,8 @@
 		62FD30A4289459CC00D9A40C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30A3289459CC00D9A40C /* SearchVC.swift */; };
 		62FD30A6289459FB00D9A40C /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */; };
 		62FD30A82894859100D9A40C /* GGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30A72894859100D9A40C /* GGButton.swift */; };
-		62FD30AB2894888A00D9A40C /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30AA2894888A00D9A40C /* GFTextField.swift */; };
+		62FD30AB2894888A00D9A40C /* GGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30AA2894888A00D9A40C /* GGTextField.swift */; };
+		62FD30AD28949A3000D9A40C /* AssetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30AC28949A3000D9A40C /* AssetConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		62FD30A3289459CC00D9A40C /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
 		62FD30A72894859100D9A40C /* GGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGButton.swift; sourceTree = "<group>"; };
-		62FD30AA2894888A00D9A40C /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
+		62FD30AA2894888A00D9A40C /* GGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGTextField.swift; sourceTree = "<group>"; };
+		62FD30AC28949A3000D9A40C /* AssetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				62FD30A3289459CC00D9A40C /* SearchVC.swift */,
 				62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */,
 				62FD30A92894886A00D9A40C /* Reusable Views */,
+				62FD30AC28949A3000D9A40C /* AssetConstants.swift */,
 				62FD30982894458600D9A40C /* Assets.xcassets */,
 				62FD309A2894458600D9A40C /* LaunchScreen.storyboard */,
 				62FD309D2894458600D9A40C /* Info.plist */,
@@ -76,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				62FD30A72894859100D9A40C /* GGButton.swift */,
-				62FD30AA2894888A00D9A40C /* GFTextField.swift */,
+				62FD30AA2894888A00D9A40C /* GGTextField.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -151,12 +154,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62FD30AB2894888A00D9A40C /* GFTextField.swift in Sources */,
+				62FD30AB2894888A00D9A40C /* GGTextField.swift in Sources */,
 				62FD30A82894859100D9A40C /* GGButton.swift in Sources */,
 				62FD30A6289459FB00D9A40C /* FavoriteListVC.swift in Sources */,
 				62FD30A4289459CC00D9A40C /* SearchVC.swift in Sources */,
 				62FD30902894458500D9A40C /* AppDelegate.swift in Sources */,
 				62FD30922894458500D9A40C /* SceneDelegate.swift in Sources */,
+				62FD30AD28949A3000D9A40C /* AssetConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
