@@ -26,6 +26,7 @@ class GGTextField: UITextField {
         font = UIFont.preferredFont(forTextStyle: .title2)
         adjustsFontSizeToFitWidth = true
         minimumFontSize = 12
+        returnKeyType = .search
         
         backgroundColor = .tertiarySystemBackground
         layer.borderWidth = 2
