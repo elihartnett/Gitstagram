@@ -53,6 +53,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6236C3622896CBD900F98892 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				62FD30A3289459CC00D9A40C /* SearchVC.swift */,
+				62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */,
+				620C64F4289592C600798986 /* FollowerListVC.swift */,
+				62FD30A92894886A00D9A40C /* Reusable Views */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6236C3642896CC4600F98892 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				620AB4E628960F73003AFEA7 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6236C3652896CCAA00F98892 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				62FD308F2894458500D9A40C /* AppDelegate.swift */,
+				62FD30912894458500D9A40C /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		6236C3662896CE2300F98892 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		62FD30832894458500D9A40C = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +107,10 @@
 		62FD308E2894458500D9A40C /* Gitstagram */ = {
 			isa = PBXGroup;
 			children = (
-				62FD308F2894458500D9A40C /* AppDelegate.swift */,
-				62FD30912894458500D9A40C /* SceneDelegate.swift */,
-				62FD30A3289459CC00D9A40C /* SearchVC.swift */,
-				620C64F4289592C600798986 /* FollowerListVC.swift */,
-				62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */,
-				620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */,
-				62FD30A92894886A00D9A40C /* Reusable Views */,
-				620AB4E628960F73003AFEA7 /* UIViewController+Extensions.swift */,
+				6236C3652896CCAA00F98892 /* Support */,
+				6236C3662896CE2300F98892 /* Models */,
+				6236C3622896CBD900F98892 /* Controllers */,
+				6236C3642896CC4600F98892 /* Extensions */,
 				62FD30AC28949A3000D9A40C /* AssetConstants.swift */,
 				62FD30982894458600D9A40C /* Assets.xcassets */,
 				62FD309A2894458600D9A40C /* LaunchScreen.storyboard */,
@@ -95,6 +126,7 @@
 				62FD30AA2894888A00D9A40C /* GGTextField.swift */,
 				620AB4E02895E1D3003AFEA7 /* GGTitleLabel.swift */,
 				620AB4E22895E32D003AFEA7 /* GGBodyLabel.swift */,
+				620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
