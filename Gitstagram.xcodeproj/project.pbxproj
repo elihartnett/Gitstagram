@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620AB4E12895E1D3003AFEA7 /* GGTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AB4E02895E1D3003AFEA7 /* GGTitleLabel.swift */; };
+		620AB4E32895E32D003AFEA7 /* GGBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AB4E22895E32D003AFEA7 /* GGBodyLabel.swift */; };
+		620AB4E52895E3EC003AFEA7 /* GGAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */; };
+		620AB4E728960F73003AFEA7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AB4E628960F73003AFEA7 /* UIViewController+Extensions.swift */; };
 		620C64F5289592C600798986 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620C64F4289592C600798986 /* FollowerListVC.swift */; };
 		62FD30902894458500D9A40C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD308F2894458500D9A40C /* AppDelegate.swift */; };
 		62FD30922894458500D9A40C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30912894458500D9A40C /* SceneDelegate.swift */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		620AB4E02895E1D3003AFEA7 /* GGTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGTitleLabel.swift; sourceTree = "<group>"; };
+		620AB4E22895E32D003AFEA7 /* GGBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGBodyLabel.swift; sourceTree = "<group>"; };
+		620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGAlertVC.swift; sourceTree = "<group>"; };
+		620AB4E628960F73003AFEA7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		620C64F4289592C600798986 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		62FD308C2894458500D9A40C /* Gitstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FD308F2894458500D9A40C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +77,9 @@
 				62FD30A3289459CC00D9A40C /* SearchVC.swift */,
 				620C64F4289592C600798986 /* FollowerListVC.swift */,
 				62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */,
+				620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */,
 				62FD30A92894886A00D9A40C /* Reusable Views */,
+				620AB4E628960F73003AFEA7 /* UIViewController+Extensions.swift */,
 				62FD30AC28949A3000D9A40C /* AssetConstants.swift */,
 				62FD30982894458600D9A40C /* Assets.xcassets */,
 				62FD309A2894458600D9A40C /* LaunchScreen.storyboard */,
@@ -83,6 +93,8 @@
 			children = (
 				62FD30A72894859100D9A40C /* GGButton.swift */,
 				62FD30AA2894888A00D9A40C /* GGTextField.swift */,
+				620AB4E02895E1D3003AFEA7 /* GGTitleLabel.swift */,
+				620AB4E22895E32D003AFEA7 /* GGBodyLabel.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -160,8 +172,12 @@
 				62FD30AB2894888A00D9A40C /* GGTextField.swift in Sources */,
 				62FD30A82894859100D9A40C /* GGButton.swift in Sources */,
 				62FD30A6289459FB00D9A40C /* FavoriteListVC.swift in Sources */,
+				620AB4E52895E3EC003AFEA7 /* GGAlertVC.swift in Sources */,
+				620AB4E728960F73003AFEA7 /* UIViewController+Extensions.swift in Sources */,
+				620AB4E12895E1D3003AFEA7 /* GGTitleLabel.swift in Sources */,
 				62FD30A4289459CC00D9A40C /* SearchVC.swift in Sources */,
 				62FD30902894458500D9A40C /* AppDelegate.swift in Sources */,
+				620AB4E32895E32D003AFEA7 /* GGBodyLabel.swift in Sources */,
 				62FD30922894458500D9A40C /* SceneDelegate.swift in Sources */,
 				62FD30AD28949A3000D9A40C /* AssetConstants.swift in Sources */,
 				620C64F5289592C600798986 /* FollowerListVC.swift in Sources */,
