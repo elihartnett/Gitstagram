@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ErrorMessages: String {
+enum GGError: String, Error {
     case invalidUsername = "This username created an invalid request"
     case unableToComplete = "Unable to complete your request. Please check your internet connection"
     case invalidData = "The data received from the server was invalid. Please try again."
