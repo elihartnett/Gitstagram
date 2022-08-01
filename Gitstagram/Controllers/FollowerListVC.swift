@@ -22,7 +22,7 @@ class FollowerListVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         NetworkManager.shared.getFollowers(for: username, page: 1) { followers, error in
             guard let followers = followers else {
-                self.presentGFAlertOnMainThread(alertTitle: "Bad stuff happened", message: error!, buttonTitle: "Ok")
+                self.presentGFAlertOnMainThread(alertTitle: "Bad stuff happened", message: error!.rawValue, buttonTitle: "Ok")
                 return
             }
             print(followers.count)
