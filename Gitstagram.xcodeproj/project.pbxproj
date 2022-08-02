@@ -77,9 +77,17 @@
 			isa = PBXGroup;
 			children = (
 				62FD30A92894886A00D9A40C /* Reusable Views */,
-				6217385B28984AE900804213 /* FollowerCell.swift */,
+				6217385F28986C1E00804213 /* Cells */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6217385F28986C1E00804213 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6217385B28984AE900804213 /* FollowerCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		6236C3622896CBD900F98892 /* Controllers */ = {
@@ -145,12 +153,12 @@
 		62FD308E2894458500D9A40C /* Gitstagram */ = {
 			isa = PBXGroup;
 			children = (
-				621738572898415700804213 /* Utilities */,
-				6236C36B2897682100F98892 /* Managers */,
 				6236C3652896CCAA00F98892 /* Support */,
 				6236C3662896CE2300F98892 /* Models */,
 				6217385A28984AB700804213 /* Views */,
 				6236C3622896CBD900F98892 /* Controllers */,
+				6236C36B2897682100F98892 /* Managers */,
+				621738572898415700804213 /* Utilities */,
 				6236C3642896CC4600F98892 /* Extensions */,
 				62FD30AC28949A3000D9A40C /* AssetConstants.swift */,
 				62FD30982894458600D9A40C /* Assets.xcassets */,
