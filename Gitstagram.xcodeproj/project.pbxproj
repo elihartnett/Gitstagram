@@ -98,6 +98,7 @@
 		6236C3622896CBD900F98892 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */,
 				62FD30A3289459CC00D9A40C /* SearchVC.swift */,
 				62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */,
 				620C64F4289592C600798986 /* FollowerListVC.swift */,
@@ -173,14 +174,6 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
-		6273332F289C7458007EC656 /* Alerts */ = {
-			isa = PBXGroup;
-			children = (
-				620AB4E42895E3EC003AFEA7 /* GGAlertVC.swift */,
-			);
-			path = Alerts;
-			sourceTree = "<group>";
-		};
 		62FD30832894458500D9A40C = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +211,6 @@
 		62FD30A92894886A00D9A40C /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
-				6273332F289C7458007EC656 /* Alerts */,
 				6273332E289C73E8007EC656 /* Labels */,
 				6273332D289C73CF007EC656 /* ImageViews */,
 				6273332C289C73C8007EC656 /* TextFields */,
