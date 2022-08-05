@@ -14,4 +14,8 @@ struct AssetConstants {
         static let emptyStateLogo = "empty-state-logo"
         static let avatarPlaceholder = "avatar-placeholder"
     }
+    
+    struct SFSymbols {
+        static let mapPin = "mappin.and.ellipse"
+    }
 }

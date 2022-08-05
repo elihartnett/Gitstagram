@@ -19,6 +19,8 @@
 		6236C36A2896D15600F98892 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6236C3692896D15600F98892 /* User.swift */; };
 		6236C36D2897682D00F98892 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6236C36C2897682D00F98892 /* NetworkManager.swift */; };
 		626B3ACC289CC1F40005190B /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B3ACB289CC1F40005190B /* UserInfoVC.swift */; };
+		626B3ACE289D86CE0005190B /* GGUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B3ACD289D86CE0005190B /* GGUserInfoHeaderVC.swift */; };
+		626B3AD0289D873C0005190B /* GGSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */; };
 		6273332A289AED16007EC656 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62733329289AED16007EC656 /* UIHelper.swift */; };
 		62733331289C7485007EC656 /* GGEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62733330289C7485007EC656 /* GGEmptyStateView.swift */; };
 		62FD30902894458500D9A40C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD308F2894458500D9A40C /* AppDelegate.swift */; };
@@ -45,6 +47,8 @@
 		6236C3692896D15600F98892 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6236C36C2897682D00F98892 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		626B3ACB289CC1F40005190B /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		626B3ACD289D86CE0005190B /* GGUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGUserInfoHeaderVC.swift; sourceTree = "<group>"; };
+		626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		62733329289AED16007EC656 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		62733330289C7485007EC656 /* GGEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGEmptyStateView.swift; sourceTree = "<group>"; };
 		62FD308C2894458500D9A40C /* Gitstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 				62FD30A5289459FB00D9A40C /* FavoriteListVC.swift */,
 				620C64F4289592C600798986 /* FollowerListVC.swift */,
 				626B3ACB289CC1F40005190B /* UserInfoVC.swift */,
+				626B3ACD289D86CE0005190B /* GGUserInfoHeaderVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				620AB4E02895E1D3003AFEA7 /* GGTitleLabel.swift */,
+				626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */,
 				620AB4E22895E32D003AFEA7 /* GGBodyLabel.swift */,
 			);
 			path = Labels;
@@ -296,6 +302,7 @@
 				6217385E28984B6A00804213 /* GGAvatarImageView.swift in Sources */,
 				62FD30AB2894888A00D9A40C /* GGTextField.swift in Sources */,
 				62FD30A82894859100D9A40C /* GGButton.swift in Sources */,
+				626B3AD0289D873C0005190B /* GGSecondaryTitleLabel.swift in Sources */,
 				62FD30A6289459FB00D9A40C /* FavoriteListVC.swift in Sources */,
 				620AB4E52895E3EC003AFEA7 /* GGAlertVC.swift in Sources */,
 				62733331289C7485007EC656 /* GGEmptyStateView.swift in Sources */,
@@ -312,6 +319,7 @@
 				6236C36D2897682D00F98892 /* NetworkManager.swift in Sources */,
 				62FD30AD28949A3000D9A40C /* AssetConstants.swift in Sources */,
 				626B3ACC289CC1F40005190B /* UserInfoVC.swift in Sources */,
+				626B3ACE289D86CE0005190B /* GGUserInfoHeaderVC.swift in Sources */,
 				620C64F5289592C600798986 /* FollowerListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
