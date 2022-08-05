@@ -1,5 +1,5 @@
 //
-//  ErrorMessages.swift
+//  GGError.swift
 //  Gitstagram
 //
 //  Created by Eli Hartnett on 8/1/22.

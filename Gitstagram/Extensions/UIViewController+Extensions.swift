@@ -11,7 +11,7 @@ fileprivate var containerView: UIView!
 
 extension UIViewController {
     
-    func presentGFAlertOnMainThread(alertTitle: String, message: String, buttonTitle: String) {
+    func presentGGAlertOnMainThread(alertTitle: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
             let alertVC = GGAlertVC(alertTitle: alertTitle, message: message, buttonTitle: buttonTitle)
             alertVC.modalPresentationStyle = .overFullScreen
