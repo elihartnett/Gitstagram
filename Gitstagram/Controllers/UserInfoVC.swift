@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol UserInfoVCDelegate: AnyObject {
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
+
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
@@ -15,7 +20,8 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
     let dateLabel = GGBodyLabel(textAlignment: .center)
     var username: String!
-
+    weak var delegate: FollowerListVCDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,15 +42,25 @@ class UserInfoVC: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
-                    self.add(childVC: GGUserInfoHeaderVC(user: user), to: self.headerView)
-                    self.add(childVC: GGRepoItemVC(user: user), to: self.itemView1)
-                    self.add(childVC: GGFollowerItemVC(user: user), to: self.itemView2)
-                    self.dateLabel.text = " Created on \(user.createdAt.convertToDisplayFormat())"
+                    self.configureUIElements(with: user)
                 }
             case .failure(let error):
                 self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
+    }
+    
+    private func configureUIElements(with user: User) {
+        let repoItemVC = GGRepoItemVC(user: user)
+        repoItemVC.delegate = self
+        
+        let followerItemVC = GGFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+        
+        self.add(childVC: GGUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(childVC: repoItemVC, to: self.itemView1)
+        self.add(childVC: followerItemVC, to: self.itemView2)
+        self.dateLabel.text = " Created on \(user.createdAt.convertToDisplayFormat())"
     }
     
     private func layoutUI() {
@@ -89,5 +105,24 @@ class UserInfoVC: UIViewController {
     
     @objc private func dismissVC() {
         dismiss(animated: true)
+    }
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+    func didTapGitHubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGGAlertOnMainThread(alertTitle: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            return
+        }
+        presentSafariVC(with: url)
+    }
+    
+    func didTapGetFollowers(for user: User) {
+        guard user.followers != 0 else {
+            presentGGAlertOnMainThread(alertTitle: "No followers", message: "This user has no followers.", buttonTitle: "Ok")
+            return
+        }
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
 }
