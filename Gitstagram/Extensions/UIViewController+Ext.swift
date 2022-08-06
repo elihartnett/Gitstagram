@@ -1,5 +1,5 @@
 //
-//  UIViewController+Extensions.swift
+//  UIViewController+Ext.swift
 //  Gitstagram
 //
 //  Created by Eli Hartnett on 7/30/22.
