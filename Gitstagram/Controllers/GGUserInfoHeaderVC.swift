@@ -34,7 +34,7 @@ class GGUserInfoHeaderVC: UIViewController {
         configureUIElements()
     }
     
-    func configureUIElements() {
+    private func configureUIElements() {
         avatarImageView.downloadImage(from: user.avatarUrl)
         usernameLabel.text = user.login
         nameLabel.text = user.name ?? "Name not available"
@@ -46,7 +46,7 @@ class GGUserInfoHeaderVC: UIViewController {
         locationImageView.tintColor = .secondaryLabel
     }
     
-    func addSubviews() {
+    private func addSubviews() {
         view.addSubview(avatarImageView)
         view.addSubview(usernameLabel)
         view.addSubview(nameLabel)
@@ -55,7 +55,7 @@ class GGUserInfoHeaderVC: UIViewController {
         view.addSubview(bioLabel)
     }
     
-    func layoutUI() {
+    private func layoutUI() {
         let padding: CGFloat = 20
         let textImagePadding: CGFloat = 12
         locationImageView.translatesAutoresizingMaskIntoConstraints = false

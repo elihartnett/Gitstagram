@@ -39,7 +39,7 @@ class GGAlertVC: UIViewController {
         configureMessageLabel()
     }
     
-    func configureContainerView() {
+    private func configureContainerView() {
         view.addSubview(containerView)
         
         containerView.backgroundColor = .systemBackground
@@ -56,7 +56,7 @@ class GGAlertVC: UIViewController {
         ])
     }
     
-    func configureTitlelabel() {
+    private func configureTitlelabel() {
         containerView.addSubview(titleLabel)
         
         titleLabel.text = alertTitle ?? "Something went wrong"
@@ -69,7 +69,7 @@ class GGAlertVC: UIViewController {
         ])
     }
     
-    func configureActionButton() {
+    private func configureActionButton() {
         containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
@@ -82,7 +82,7 @@ class GGAlertVC: UIViewController {
         ])
     }
     
-    func configureMessageLabel() {
+    private func configureMessageLabel() {
         containerView.addSubview(messageLabel)
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4

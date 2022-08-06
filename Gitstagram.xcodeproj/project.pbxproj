@@ -23,6 +23,7 @@
 		626B3AD0289D873C0005190B /* GGSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */; };
 		6273332A289AED16007EC656 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62733329289AED16007EC656 /* UIHelper.swift */; };
 		62733331289C7485007EC656 /* GGEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62733330289C7485007EC656 /* GGEmptyStateView.swift */; };
+		627E6F3A289E18D60047B2EA /* GGItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E6F39289E18D60047B2EA /* GGItemInfoView.swift */; };
 		62FD30902894458500D9A40C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD308F2894458500D9A40C /* AppDelegate.swift */; };
 		62FD30922894458500D9A40C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD30912894458500D9A40C /* SceneDelegate.swift */; };
 		62FD30992894458600D9A40C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FD30982894458600D9A40C /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		62733329289AED16007EC656 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		62733330289C7485007EC656 /* GGEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGEmptyStateView.swift; sourceTree = "<group>"; };
+		627E6F39289E18D60047B2EA /* GGItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGItemInfoView.swift; sourceTree = "<group>"; };
 		62FD308C2894458500D9A40C /* Gitstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FD308F2894458500D9A40C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62FD30912894458500D9A40C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				6273332D289C73CF007EC656 /* ImageViews */,
 				6273332C289C73C8007EC656 /* TextFields */,
 				6273332B289C73C3007EC656 /* Buttons */,
+				627E6F39289E18D60047B2EA /* GGItemInfoView.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				621738592898417100804213 /* GGError.swift in Sources */,
 				6217385E28984B6A00804213 /* GGAvatarImageView.swift in Sources */,
 				62FD30AB2894888A00D9A40C /* GGTextField.swift in Sources */,
+				627E6F3A289E18D60047B2EA /* GGItemInfoView.swift in Sources */,
 				62FD30A82894859100D9A40C /* GGButton.swift in Sources */,
 				626B3AD0289D873C0005190B /* GGSecondaryTitleLabel.swift in Sources */,
 				62FD30A6289459FB00D9A40C /* FavoriteListVC.swift in Sources */,

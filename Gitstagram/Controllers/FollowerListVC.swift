@@ -12,7 +12,7 @@ class FollowerListVC: UIViewController {
     enum Section {
         case main
     }
-
+    
     var username: String!
     var followers: [Follower] = []
     var filteredFollowers: [Follower] = []
@@ -37,12 +37,12 @@ class FollowerListVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.delegate = self
@@ -50,7 +50,7 @@ class FollowerListVC: UIViewController {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
             cell.set(follower: follower)
@@ -58,7 +58,7 @@ class FollowerListVC: UIViewController {
         })
     }
     
-    func configureSearchController() {
+    private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -67,7 +67,7 @@ class FollowerListVC: UIViewController {
         navigationItem.searchController = searchController
     }
     
-    func getFollowers(username: String, page: Int) {
+    private func getFollowers(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
@@ -93,7 +93,7 @@ class FollowerListVC: UIViewController {
         }
     }
     
-    func updateData(on followers: [Follower]) {
+    private func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)

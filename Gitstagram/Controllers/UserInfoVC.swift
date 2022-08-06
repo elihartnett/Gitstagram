@@ -23,13 +23,13 @@ class UserInfoVC: UIViewController {
         getUserInfo()
     }
     
-    func configureVC() {
+    private func configureVC() {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
     }
     
-    func getUserInfo() {
+    private func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -43,7 +43,7 @@ class UserInfoVC: UIViewController {
         }
     }
     
-    func layoutUI() {
+    private func layoutUI() {
         
         itemViews = [headerView, itemView1, itemView2]
         let padding: CGFloat = 20
@@ -76,14 +76,14 @@ class UserInfoVC: UIViewController {
         
     }
     
-    func add(childVC: UIViewController, to containerView: UIView) {
+    private func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
     
-    @objc func dismissVC() {
+    @objc private func dismissVC() {
         dismiss(animated: true)
     }
 }

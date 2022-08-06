@@ -28,7 +28,7 @@ class SearchVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func configureLogoImageView() {
+    private func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(named: AssetConstants.Images.appLogo)!
@@ -41,7 +41,7 @@ class SearchVC: UIViewController {
         ])
     }
     
-    func configureTextField() {
+    private func configureTextField() {
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         
@@ -53,7 +53,7 @@ class SearchVC: UIViewController {
         ])
     }
     
-    func configureGetFollowersButton() {
+    private func configureGetFollowersButton() {
         view.addSubview(getFollowersButton)
         
         NSLayoutConstraint.activate([
@@ -66,12 +66,12 @@ class SearchVC: UIViewController {
         getFollowersButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
     }
     
-    func createDismissKeyboardTapGesture() {
+    private func createDismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
-    @objc func pushFollowerListVC() {
+    @objc private func pushFollowerListVC() {
         guard isUsernameEntered else {
             presentGGAlertOnMainThread(alertTitle: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
             return
