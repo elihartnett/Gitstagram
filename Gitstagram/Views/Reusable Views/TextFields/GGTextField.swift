@@ -19,6 +19,7 @@ class GGTextField: UITextField {
     }
     
     private func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
         textColor = .label
         tintColor = .label
         placeholder = "Enter a username"
@@ -34,6 +35,6 @@ class GGTextField: UITextField {
         layer.cornerRadius = 10
 
         autocorrectionType = .no
-        translatesAutoresizingMaskIntoConstraints = false
+        clearButtonMode = .whileEditing
     }
 }

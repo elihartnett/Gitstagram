@@ -34,7 +34,7 @@ class GGEmptyStateView: UIView {
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
         
-        logoImageView.image = UIImage(named: AssetConstants.Images.emptyStateLogo)
+        logoImageView.image = UIImage(named: Constants.Images.emptyStateLogo)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
