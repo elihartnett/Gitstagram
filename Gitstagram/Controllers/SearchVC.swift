@@ -11,7 +11,7 @@ class SearchVC: UIViewController {
     
     let logoImageView = UIImageView()
     let usernameTextField = GGTextField()
-    let getFollowersButton = GGButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let getFollowersButton = GGButton(color: .systemGray, title: "Get Followers", systemImageName: "person.3")
     var logoImageViewTopConstraint: NSLayoutConstraint!
     var isUsernameEntered: Bool { !usernameTextField.text!.isEmpty }
 
@@ -60,6 +60,9 @@ class SearchVC: UIViewController {
     }
     
     private func configureGetFollowersButton() {
+
+        getFollowersButton.configuration?.baseForegroundColor = .systemPink
+        
         view.addSubview(getFollowersButton)
         
         NSLayoutConstraint.activate([
