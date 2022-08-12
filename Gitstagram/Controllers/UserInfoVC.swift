@@ -60,7 +60,7 @@ class UserInfoVC: UIViewController {
         self.add(childVC: GGUserInfoHeaderVC(user: user), to: self.headerView)
         self.add(childVC: repoItemVC, to: self.itemView1)
         self.add(childVC: followerItemVC, to: self.itemView2)
-        self.dateLabel.text = " Created in \(user.createdAt.convertToDisplayFormat())"
+        self.dateLabel.text = " Created in \(user.createdAt.convertToMonthYearFormat())"
     }
     
     private func layoutUI() {

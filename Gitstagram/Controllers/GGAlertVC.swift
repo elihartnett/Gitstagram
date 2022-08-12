@@ -9,7 +9,7 @@ import UIKit
 
 class GGAlertVC: UIViewController {
     
-    let containerView = UIView()
+    let containerView = GGAlertContainerView()
     let titleLabel = GGTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GGBodyLabel(textAlignment: .center)
     let actionButton = GGButton(color: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
@@ -41,12 +41,6 @@ class GGAlertVC: UIViewController {
     
     private func configureContainerView() {
         view.addSubview(containerView)
-        
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.cornerRadius = 16
-        containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = UIColor.white.cgColor
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

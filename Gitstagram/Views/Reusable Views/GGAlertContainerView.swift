@@ -1,16 +1,14 @@
 //
-//  GGAvatarImageView.swift
+//  GGAlertContainerView.swift
 //  Gitstagram
 //
-//  Created by Eli Hartnett on 8/1/22.
+//  Created by Eli Hartnett on 8/12/22.
 //
 
 import UIKit
 
-class GGAvatarImageView: UIImageView {
+class GGAlertContainerView: UIView {
     
-    let cache = NetworkManager.shared.cache
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -21,9 +19,10 @@ class GGAvatarImageView: UIImageView {
     }
     
     private func configure() {
-        layer.cornerRadius = 10
-        clipsToBounds = true
-        image = UIImage(named: Constants.Images.avatarPlaceholder)
+        backgroundColor = .systemBackground
+        layer.cornerRadius = 16
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

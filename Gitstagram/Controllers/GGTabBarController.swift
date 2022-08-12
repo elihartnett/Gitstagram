@@ -11,7 +11,7 @@ class GGTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.appearance().tintColor = .systemGreen
+        UITabBar.appearance().tintColor = .systemPink
         viewControllers = [createSearchNC(), createFavoritesListNC()]
     }
     

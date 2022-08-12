@@ -18,9 +18,8 @@ class GGButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(color: UIColor, title: String, systemImageName: String) {
-        super.init(frame: .zero)
-        configure()
+    convenience init(color: UIColor, title: String, systemImageName: String) {
+        self.init(frame: .zero)
         set(color: color, title: title, systemImageName: systemImageName)
     }
     
