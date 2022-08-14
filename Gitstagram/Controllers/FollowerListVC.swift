@@ -52,6 +52,7 @@ class FollowerListVC: GGDataLoadingVC {
     }
     
     private func configureViewController() {
+        title = username
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
@@ -136,7 +137,7 @@ class FollowerListVC: GGDataLoadingVC {
                     if let error = error {
                         self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
                     }
-                    self.presentGGAlertOnMainThread(alertTitle: "Success!", message: "You  have successfully favorited this user.", buttonTitle: "Ok")
+                    self.presentGGAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
                 }
             case .failure(let error):
                 self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
