@@ -82,18 +82,21 @@ class FollowerListVC: GGDataLoadingVC {
         showLoadingView()
         isLoadingMoreFollowers = true
         
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            switch result {
-            case.success(let followers):
-                self.updateUI(with: followers)
-            case .failure(let error):
-                self.presentGGAlertOnMainThread(alertTitle: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
-                return
+        Task {
+            do {
+                let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                updateUI(with: followers)
+                dismissLoadingView()
             }
-            
-            self.isLoadingMoreFollowers = false
+            catch {
+                if let ggError = error as? GGError {
+                    presentGGAlert(alertTitle: "Bad stuff happened", message: ggError.rawValue, buttonTitle: "Ok")
+                }
+                else {
+                    presentDefaultError()
+                }
+                dismissLoadingView()
+            }
         }
     }
     
@@ -132,7 +135,7 @@ class FollowerListVC: GGDataLoadingVC {
             case .success(let user):
                 self.addUserToFavorites(user: user)
             case .failure(let error):
-                self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                self.presentGGAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
@@ -142,9 +145,9 @@ class FollowerListVC: GGDataLoadingVC {
         
         PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
             if let error = error {
-                self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                self.presentGGAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
-            self.presentGGAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
+            self.presentGGAlert(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
         }
     }
 }

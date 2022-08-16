@@ -58,7 +58,7 @@ class UserInfoVC: UIViewController {
                     self.configureUIElements(with: user)
                 }
             case .failure(let error):
-                self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                self.presentGGAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
@@ -120,7 +120,7 @@ class UserInfoVC: UIViewController {
 extension UserInfoVC: GGRepoItemVCDelegate {
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
-            presentGGAlertOnMainThread(alertTitle: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            presentGGAlert(alertTitle: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
         }
         presentSafariVC(with: url)
@@ -130,7 +130,7 @@ extension UserInfoVC: GGRepoItemVCDelegate {
 extension UserInfoVC: GGFollowerItemVCDelegate {
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
-            presentGGAlertOnMainThread(alertTitle: "No followers", message: "This user has no followers.", buttonTitle: "Ok")
+            presentGGAlert(alertTitle: "No followers", message: "This user has no followers.", buttonTitle: "Ok")
             return
         }
         delegate.didRequestFollowers(for: user.login)
