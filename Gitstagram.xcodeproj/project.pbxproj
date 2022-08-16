@@ -212,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				620AB4E02895E1D3003AFEA7 /* GGTitleLabel.swift */,
-				626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */,
 				620AB4E22895E32D003AFEA7 /* GGBodyLabel.swift */,
+				626B3ACF289D873C0005190B /* GGSecondaryTitleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";

@@ -10,9 +10,7 @@ import UIKit
 
 class FollowerListVC: GGDataLoadingVC {
     
-    enum Section {
-        case main
-    }
+    enum Section { case main }
     
     var username: String!
     var followers: [Follower] = []
@@ -89,18 +87,7 @@ class FollowerListVC: GGDataLoadingVC {
             self.dismissLoadingView()
             switch result {
             case.success(let followers):
-                if followers.count < 100 { self.hasMoreFollowers = false}
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.isEmpty {
-                    let message = "This user doesn't have any followers."
-                    DispatchQueue.main.async {
-                        self.showEmptyStateView(with: message, in: self.view)
-                        return
-                    }
-                }
-                
-                self.updateData(on: self.followers)
+                self.updateUI(with: followers)
             case .failure(let error):
                 self.presentGGAlertOnMainThread(alertTitle: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
                 return
@@ -108,6 +95,21 @@ class FollowerListVC: GGDataLoadingVC {
             
             self.isLoadingMoreFollowers = false
         }
+    }
+    
+    private func updateUI(with followers: [Follower]) {
+        if followers.count < 100 { self.hasMoreFollowers = false}
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "This user doesn't have any followers."
+            DispatchQueue.main.async {
+                self.showEmptyStateView(with: message, in: self.view)
+                return
+            }
+        }
+        
+        self.updateData(on: self.followers)
     }
     
     private func updateData(on followers: [Follower]) {
@@ -128,17 +130,21 @@ class FollowerListVC: GGDataLoadingVC {
             
             switch result {
             case .success(let user):
-                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                
-                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
-                    if let error = error {
-                        self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
-                    }
-                    self.presentGGAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
-                }
+                self.addUserToFavorites(user: user)
             case .failure(let error):
                 self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
+        }
+    }
+    
+    private func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
+            if let error = error {
+                self.presentGGAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
+            self.presentGGAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
         }
     }
 }

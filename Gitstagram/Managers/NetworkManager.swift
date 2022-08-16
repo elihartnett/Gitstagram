@@ -8,6 +8,7 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared = NetworkManager()
     
     private let baseUrlString = "https://api.github.com/users/"

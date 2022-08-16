@@ -29,13 +29,13 @@ class GGUserInfoHeaderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubviews()
+        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         layoutUI()
         configureUIElements()
     }
     
     private func configureUIElements() {
-       downloadAvatarImage()
+        avatarImageView.downloadAvatarImage(fromURL: user.avatarUrl)
         usernameLabel.text = user.login
         nameLabel.text = user.name ?? "Name not available"
         locationLabel.text = user.location ?? "No location available"
@@ -44,17 +44,6 @@ class GGUserInfoHeaderVC: UIViewController {
         
         locationImageView.image = UIImage(systemName: Constants.SFSymbols.mapPin)
         locationImageView.tintColor = .secondaryLabel
-    }
-    
-    private func downloadAvatarImage() {
-        NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
-    }
-    
-    private func addSubviews() {
-        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
     }
     
     private func layoutUI() {

@@ -22,11 +22,12 @@ class GGTextField: UITextField {
         translatesAutoresizingMaskIntoConstraints = false
         textColor = .label
         tintColor = .label
-        placeholder = "Enter a username"
-        textAlignment = .center
         font = UIFont.preferredFont(forTextStyle: .title2)
-        adjustsFontSizeToFitWidth = true
         minimumFontSize = 12
+        
+        textAlignment = .center
+        placeholder = "Enter a username"
+        adjustsFontSizeToFitWidth = true
         returnKeyType = .search
         
         backgroundColor = .tertiarySystemBackground
