@@ -87,6 +87,7 @@ class FollowerListVC: GGDataLoadingVC {
                 let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
                 updateUI(with: followers)
                 dismissLoadingView()
+                isLoadingMoreFollowers = false
             }
             catch {
                 if let ggError = error as? GGError {
@@ -95,7 +96,6 @@ class FollowerListVC: GGDataLoadingVC {
                 else {
                     presentDefaultError()
                 }
-                dismissLoadingView()
             }
         }
     }
@@ -126,16 +126,19 @@ class FollowerListVC: GGDataLoadingVC {
     
     @objc func addButtonTapped() {
         showLoadingView()
-        
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case .success(let user):
-                self.addUserToFavorites(user: user)
-            case .failure(let error):
-                self.presentGGAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                addUserToFavorites(user: user)
+                dismissLoadingView()
+            }
+            catch {
+                if let ggError = error as? GGError {
+                    presentGGAlert(alertTitle: "Something went wrong", message: ggError.rawValue, buttonTitle: "Ok")
+                }
+                else {
+                    presentDefaultError()
+                }
             }
         }
     }
@@ -143,11 +146,16 @@ class FollowerListVC: GGDataLoadingVC {
     private func addUserToFavorites(user: User) {
         let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
         
-        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { error in
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
             if let error = error {
-                self.presentGGAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                DispatchQueue.main.async {
+                    self.presentGGAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                }
             }
-            self.presentGGAlert(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
+            DispatchQueue.main.async {
+                self.presentGGAlert(alertTitle: "Success!", message: "You have successfully favorited this user.", buttonTitle: "Ok")
+            }
         }
     }
 }

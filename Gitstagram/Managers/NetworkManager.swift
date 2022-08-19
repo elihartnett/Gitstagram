@@ -76,67 +76,104 @@ class NetworkManager {
         }
     }
     
+    //    func getUserInfo(for username: String, completed: @escaping (Result<User, GGError>) -> Void) {
+    //        let endPointString = baseUrlString + username
+    //        guard let endPointURL = URL(string: endPointString) else {
+    //            completed(.failure(.invalidUsername))
+    //            return
+    //        }
+    //
+    //        // error -> no internet, response -> internet, but bad response came back
+    //        let task = URLSession.shared.dataTask(with: endPointURL) { data, response, error in
+    //            if let _ = error {
+    //                completed(.failure(.unableToComplete))
+    //                return
+    //            }
+    //
+    //            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+    //                completed(.failure(.invalidResponse))
+    //                return
+    //            }
+    //
+    //            guard let data = data else {
+    //                completed(.failure(.invalidData))
+    //                return
+    //            }
+    //
+    //            do {
+    //                let user = try self.decoder.decode(User.self, from: data)
+    //                completed(.success(user))
+    //            } catch {
+    //                completed(.failure(.invalidData))
+    //            }
+    //        }
+    //        task.resume()
+    //    }
     
-    func getUserInfo(for username: String, completed: @escaping (Result<User, GGError>) -> Void) {
+    func getUserInfo(for username: String) async throws -> User {
         let endPointString = baseUrlString + username
         guard let endPointURL = URL(string: endPointString) else {
-            completed(.failure(.invalidUsername))
-            return
+            throw GGError.invalidUsername
         }
         
         // error -> no internet, response -> internet, but bad response came back
-        let task = URLSession.shared.dataTask(with: endPointURL) { data, response, error in
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let user = try self.decoder.decode(User.self, from: data)
-                completed(.success(user))
-            } catch {
-                completed(.failure(.invalidData))
-            }
+        let (data, response) = try await URLSession.shared.data(from: endPointURL)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GGError.invalidResponse
         }
-        task.resume()
+        
+        do {
+            return try self.decoder.decode(User.self, from: data)
+        } catch {
+            throw GGError.invalidData
+        }
     }
     
-    func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
+//    func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
+//        let cacheKey = NSString(string: urlString)
+//
+//        if let image = cache.object(forKey: cacheKey) {
+//            completed(image)
+//            return
+//        }
+//
+//        guard let url = URL(string: urlString) else {
+//            completed(nil)
+//            return
+//        }
+//
+//        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+//            guard let self = self,
+//                  error == nil,
+//                  let response = response as? HTTPURLResponse, response.statusCode == 200,
+//                  let data = data,
+//                  let image = UIImage(data: data) else {
+//                completed(nil)
+//                return
+//            }
+//
+//            self.cache.setObject(image, forKey: cacheKey)
+//            completed(image)
+//        }
+//        task.resume()
+//    }
+    
+    func downloadImage(from urlString: String) async -> UIImage? {
         let cacheKey = NSString(string: urlString)
         
-        if let image = cache.object(forKey: cacheKey) {
-            completed(image)
-            return
-        }
+        if let image = cache.object(forKey: cacheKey) { return image }
         
-        guard let url = URL(string: urlString) else {
-            completed(nil)
-            return
-        }
+        guard let url = URL(string: urlString) else { return nil }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self,
-                  error == nil,
-                  let response = response as? HTTPURLResponse, response.statusCode == 200,
-                  let data = data,
-                  let image = UIImage(data: data) else {
-                completed(nil)
-                return
-            }
-            
-            self.cache.setObject(image, forKey: cacheKey)
-            completed(image)
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let image = UIImage(data: data) else { return nil }
+            cache.setObject(image, forKey: cacheKey)
+            return image
         }
-        task.resume()
+        catch {
+            return nil
+        }
     }
 }
