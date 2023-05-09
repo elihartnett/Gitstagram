@@ -1,5 +1,5 @@
 # Gitstagram
-Inspired by https://seanallen.teachable.com/p/take-home
+Inspired by [Sean Allen GitHub Followers Project](https://seanallen.teachable.com/p/take-home)
 
 <img src="https://raw.githubusercontent.com/Elichartnett/Gitstagram/main/Gitstagram/1.png" alt="1" width="300"/>
 
